@@ -3,7 +3,7 @@
 
 # Standardized Model for Warrant Canaries
 ---
-A proposal for standardizing the model for warrant canaries and seppuku pledges to facilitate wide-scale adoption.
+A proposal for standardizing the model for warrant canaries and seppuku pledges to facilitate wide-scale adoption, automated tracking, and programmable validation.
 
 *This proposal was originally created by [carrotcypher](http://keybase.io/carrotcypher) for consideration of CanaryWatch and CalyxInstitute and contains external research graciously made publicly available by the CalyxInstitute.*
 
