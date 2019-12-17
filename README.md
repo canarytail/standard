@@ -1,3 +1,6 @@
+![CanaryTail](https://avatars1.githubusercontent.com/u/48291284?s=110&v=4)
+
+
 # Standardized Model for Warrant Canaries
 ---
 A proposal for standardizing the model for warrant canaries and seppuku pledges to facilitate wide-scale adoption.
