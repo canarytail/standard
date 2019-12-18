@@ -1,4 +1,4 @@
-![CanaryTail](https://github.com/canarytail/standard/blob/master/canarytail-logo-bg.png?raw=true)
+![CanaryTail](https://github.com/canarytail/standard/blob/master/canarytail-logo-bg-alert.png?raw=true)
 
 
 # Standardized Model for Warrant Canaries
