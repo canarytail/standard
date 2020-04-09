@@ -78,11 +78,30 @@ SEPU | ........ | Seppuku pledge²
 
 ### Construction
 
-Construction of the canary is done as an ECDSA (​ Curve25519 ​) cryptographically signed JSON array with the public key provided inside as the variable ​PUBKEY​. Also provided is the ​VERSION of the canary codes map used, the date of ​RELEASE​, the date it EXPIRES, and cryptographically verifiable proof of ​FRESHNESS as the latest block hash of the bitcoin blockchain.
+Construction of the canary is done as JSON array with multiple options for verification rated by security. Among the fields provided is the ​VERSION​ of the canary codes map used, the date of ​RELEASE​, the date it EXPIRES, and cryptographically verifiable proof of ​FRESHNESS​ as the latest block hash of the bitcoin blockchain.
 
+
+#### Low security
+
+The canary can be authenticated to the original source by providing the ​DOMAIN​ it will be served at. This is a less secure method of authenticity as anyone with publishing access to the domain can modify the canary.
+
+
+#### Medium security
+
+Authentication of the canary is done via ECDSA (​ Curve25519 ​) cryptographic signature of the JSON array by the public key provided inside as the variable ​PUBKEY​.
+
+
+#### High security
+
+The ECDSA (​ Curve25519 ​) ​PUBKEY​ can be a split-key created by n-of-p in order to ensure multiple parties consent to updates of the canary.
+
+
+
+#### Format
 
     -----BEGIN CANARY SIGNED MESSAGE-----
     {
+        "DOMAIN" : "www.example.com",
         "PUBKEY" : "1GQH1cDFHLyq2KHHAqFTYMy9kWmMw9dsdR",
         "NEWKEY" : "1DEKZAMjiT1jUhWAh8RH6zwmQpuvtW6X3y",
         ​"PANICKEY" : "1MKoEjCVyLcVrNZJEdxy4Utv4enNe5XNUn",
