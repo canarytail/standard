@@ -133,7 +133,7 @@ Usage example:
     	"NEWPUBKEY": "1DEKZAMjiT1jUhWAh8RH6zwmQpuvtW6X3y",
     	"PANICKEY": "1MKoEjCVyLcVrNZJEdxy4Utv4enNe5XNUn",
     	"NEWPANICKEY": "",
-    	"VERSION": 0.1,
+    	"VERSION": "0.1",
     	"RELEASE": "2019-03-06T22:23:09.963",
     	"EXPIRY": "2019-04-06T22:23:09.963",
     	"FRESHNESS": "0000 0000 0000 0000 000e d66a e55a 308b 77e5 ff78 bc94 a69b 8c27 da81 9562 537b",
