@@ -70,7 +70,7 @@ RAID | ........ | Raids with high confidence nothing containing useful data was 
 SEIZE | ........ | Raids with low confidence nothing containing useful data was seized
 XCRED | ........ | Compromised credentials
 XOPERS | ........ | Compromised operations
-SEPU | ........ | Seppuku pledge²
+SEPPU | ........ | Seppuku pledge²
 ---
 *² ​A Seppuku pledge is a statement of intent to shut down and cease operations of a company or project, wipe all devices, and destroy all files in the event of an unsurpassable order to operate under the supervision, control, or influence of a malicious entity.*
 
@@ -137,7 +137,7 @@ Usage example:
     	"RELEASE": "2019-03-06T22:23:09.963",
     	"EXPIRY": "2019-04-06T22:23:09.963",
     	"FRESHNESS": "0000 0000 0000 0000 000e d66a e55a 308b 77e5 ff78 bc94 a69b 8c27 da81 9562 537b",
-    	"CODES": ["WAR", "GAG", "SUBP", "TRAP", "CEASE", "DURESS", "RAID", "SEIZE", "XCRED", "XOPERS", "SEPU"]
+    	"CODES": ["WAR", "GAG", "SUBP", "TRAP", "CEASE", "DURESS", "RAID", "SEIZE", "XCRED", "XOPERS", "SEPPU"]
     }
     -----BEGIN SIGNATURE-----
 
