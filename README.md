@@ -99,31 +99,46 @@ The ECDSA (​ Curve25519 ​) ​PUBKEY​ can be a split-key created by n-of-p
 
 #### Format
 
+Valid Fields:
+
+`DOMAIN` - specifies the address (if any) tied to the entity. This is used for simplistic TLS/SSL certificate verification of authenticity as well.
+
+`PUBKEY` - specifies the public key (if any) tied to the entity. This is used for signing the canary itself to prove authenticity.
+
+`NEWPUBKEY` - species the replacement public key (if any) tied to the entity. This is used when signing parties change or a key needs to be updated for whatever reason.
+
+`PANICKEY` - specifies the public key (if any) that can trigger the canary simply by signing it. This is used when the party wishes to end the canary for whatever reason (e.g. business closing, compromised, lost keys to main signing key).
+
+`NEWPANICKEY` - species the replacement panic public key (if any) tied to the entity. This is used when signing parties change or a key needs to be updated for whatever reason.
+
+`VERSION` - specifies the protocol version (different protocols may behave differently or contain different codes)
+
+`RELEASE` - specifies when the canary was signed
+
+`EXPIRY` - specifies when the canary expires
+
+`FRESHNESS` - specifies a recent block hash from the bitcoin blockchain. This is used to provide evidence that the canary was not signed before said block was mined.
+
+`CODES` - specifies an array of the codes that apply to this canary. Missing codes indicate triggered canary.
+
+
+
+
+Usage example:
+
     -----BEGIN CANARY SIGNED MESSAGE-----
     {
-        "DOMAIN" : "www.example.com",
-        "PUBKEY" : "1GQH1cDFHLyq2KHHAqFTYMy9kWmMw9dsdR",
-        "NEWKEY" : "1DEKZAMjiT1jUhWAh8RH6zwmQpuvtW6X3y",
-        ​"PANICKEY" : "1MKoEjCVyLcVrNZJEdxy4Utv4enNe5XNUn",
-        "VERSION" : 0.1,
-        ​"RELEASE" : "2019-03-06T22:23:09.963Z",
-        “EXPIRES” : “2019-04-06T22:23:09.963Z”,
-        "FRESHNESS" : "0000 0000 0000 0000 000e d66a e55a 308b 77e5 ff78 bc94 a69b 8c27 da81 9562 537b",
-        ​"CODES" : {
-            ​"WAR" : 0,
-            "GAG" : 0,
-            "SUBP" : 0,
-            "TRAP" : 0,
-            "CEASE" : 0,
-            ​"DURESS" : 0,
-            "RAID" : 0,
-            "SEIZE" : 0,
-            "XCRED" : 0,
-            "XOPERS" : 0,
-            "SEPU" : 1
-        }
+    	"DOMAIN": "www.example.com",
+    	"PUBKEY": "1GQH1cDFHLyq2KHHAqFTYMy9kWmMw9dsdR",
+    	"NEWPUBKEY": "1DEKZAMjiT1jUhWAh8RH6zwmQpuvtW6X3y",
+    	"PANICKEY": "1MKoEjCVyLcVrNZJEdxy4Utv4enNe5XNUn",
+    	"NEWPANICKEY": "",
+    	"VERSION": 0.1,
+    	"RELEASE": "2019-03-06T22:23:09.963",
+    	"EXPIRY": "2019-04-06T22:23:09.963",
+    	"FRESHNESS": "0000 0000 0000 0000 000e d66a e55a 308b 77e5 ff78 bc94 a69b 8c27 da81 9562 537b",
+    	"CODES": ["WAR", "GAG", "SUBP", "TRAP", "CEASE", "DURESS", "RAID", "SEIZE", "XCRED", "XOPERS", "SEPU"]
     }
-
     -----BEGIN SIGNATURE-----
 
     1HZwkjkeaoZfTSaJxDw6aKkxp45agDiEzN
