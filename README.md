@@ -172,9 +172,9 @@ Canaries are cryptographically signed to ensure the integrity of the data and to
 
 ---
 
-### Decentralized distribution
+### Decentralized distribution / storing history
 
-To combat circumvention and to facilitate memory of previous canaries published, the distribution of canaries is done through a decentralized file sharing system such as IPFS or TahoeLAFS. With multiple public entities storing their own mirrors of the distributed database of canaries with version changes, submission of canaries in a timely manner is not easily thwarted by censorship tactics, and automated validation can be performed on the published canary.
+To combat circumvention and to provide a comparable history of previously published canaries, the distribution of canaries can done through a decentralized file sharing system such as IPFS or TahoeLAFS. With multiple public entities storing their own mirrors of the distributed database of canaries with version changes, submission of canaries in a timely manner is not easily thwarted by censorship tactics, and automated validation can be performed on the published canary.
 
 ---
 
