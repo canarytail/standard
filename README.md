@@ -154,7 +154,7 @@ Usage example:
     "SIGNATURE": "Eajg00cYjeP1Tt//6moo2eMpfHnrd8HZnOqY1XcawoqgwBrF4pIQ984kxN1uLQQHaKfStoWJTM5MKhR5aujTBA=="
    }
 
-Using the canary above, one may programmatically determine that the owner of the PUBKEY​ ​1GQH1cDFHLyq2KHHAqFTYMy9kWmMw9dsdR​ is confident that:
+Using the canary above, one may programmatically determine that the owner of the PUBKEY​ ​Y4PsjneDjxckrgibojs38VDWFBTyvlVtTQR3Z9RTRw0=​ is confident that:
 
 * they have not received warrants or gag orders of any kind
 * they have not been asked to spy on their customers or users or install backdoors
