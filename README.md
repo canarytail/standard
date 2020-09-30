@@ -126,26 +126,33 @@ Valid Fields:
 
 Usage example:
 
-    -----BEGIN CANARY SIGNED MESSAGE-----
     {
-    	"DOMAIN": "www.example.com",
-    	"PUBKEY": "1GQH1cDFHLyq2KHHAqFTYMy9kWmMw9dsdR",
-    	"NEWPUBKEY": "1DEKZAMjiT1jUhWAh8RH6zwmQpuvtW6X3y",
-    	"PANICKEY": "1MKoEjCVyLcVrNZJEdxy4Utv4enNe5XNUn",
-    	"NEWPANICKEY": "",
-    	"VERSION": "0.1",
-    	"RELEASE": "2019-03-06T22:23:09.963",
-    	"EXPIRY": "2019-04-06T22:23:09.963",
-    	"FRESHNESS": "0000 0000 0000 0000 000e d66a e55a 308b 77e5 ff78 bc94 a69b 8c27 da81 9562 537b",
-    	"CODES": ["WAR", "GAG", "SUBP", "TRAP", "CEASE", "DURESS", "RAID", "SEIZE", "XCRED", "XOPERS", "SEPPU"]
-    }
-    -----BEGIN SIGNATURE-----
-
-    1HZwkjkeaoZfTSaJxDw6aKkxp45agDiEzN
-    G5ggR44agGR90xngVZvpqGKfgcQUPWyQmY93BfPUnfKkFpV+u6NC3Q/Q8i
-    6ID2dY2oGYW2gsgz6sfLJrUlVz4A=
-
-    -----END CANARY SIGNED MESSAGE-----
+    "CANARY": {
+        "DOMAIN": "cryptanalys.is",
+        "PUBKEY": "Y4PsjneDjxckrgibojs38VDWFBTyvlVtTQR3Z9RTRw0=",
+        "NEWPUBKEY": "",
+        "PANICKEY": "",
+        "NEWPANICKEY": "",
+        "VERSION": "0.1",
+        "RELEASE": "2020-09-30T19:17:40+09:00",
+        "EXPIRY": "2030-09-30T19:17:40+09:00",
+        "FRESHNESS": "00000000000000000008b4177c1302331aa546635d65306d35c97a8b9bb3461d",
+        "CODES": [
+            "SEPPU",
+            "GAG",
+            "TRAP",
+            "DURESS",
+            "XCRED",
+            "XOPERS",
+            "WAR",
+            "SUBP",
+            "CEASE",
+            "RAID",
+            "SEIZE"
+        ]
+    },
+    "SIGNATURE": "Eajg00cYjeP1Tt//6moo2eMpfHnrd8HZnOqY1XcawoqgwBrF4pIQ984kxN1uLQQHaKfStoWJTM5MKhR5aujTBA=="
+   }
 
 Using the canary above, one may programmatically determine that the owner of the PUBKEY​ ​1GQH1cDFHLyq2KHHAqFTYMy9kWmMw9dsdR​ is confident that:
 
