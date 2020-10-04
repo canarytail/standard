@@ -3,7 +3,7 @@
 
 # Standardized Model for Warrant Canaries
 ---
-A proposal for standardizing the model for warrant canaries and seppuku pledges to facilitate wide-scale adoption, automated tracking, and programmable validation.
+A proposal for standardizing the model for warrant canaries to facilitate scalable adoption by enabling automated monitoring and validation.
 
 *This proposal was originally created by [carrotcypher](http://keybase.io/carrotcypher) for consideration of CanaryWatch and CalyxInstitute and contains external research graciously made publicly available by the CalyxInstitute.*
 
@@ -12,35 +12,35 @@ A proposal for standardizing the model for warrant canaries and seppuku pledges 
 ## Warrant Canaries
 ### Introduction
 
-The objective of this document is to present the case for standardized criteria in warrant canaries as a means of simplifying the process of creating, distributing, monitoring, and administrating *​warrant canaries* and *seppuku pledges*.
+The objective of this document is to present the case for standardized criteria in warrant canaries as a means of simplifying the process of creating, distributing, monitoring, and administrating *​warrant canaries*.
 
-Warrant canaries introduce several issues as have been witnessed from organizations that employed or maintained them improperly. We seek to resolve those issues through a proper standardized model of generation, administration, and distribution, with variance allowed only inside the boundaries of a defined protocol. Those issues are:
+Warrant canaries introduce several issues as have been witnessed from organizations that employed or maintained them improperly. This standard seeks to resolve those issues through a proper standardized model of generation, administration, and distribution, with variance allowed only inside the boundaries of a defined protocol. Those issues are:
 
 * Confusion attributed to non-standardized language
 * Loss of access leading to misinterpretation
 * Imperfect generation, maintenance, and distribution methods frustrating the overall maintenance process
 * Inability to automate the monitoring and reasonable interpretation of canary health
-* Centralized distribution allowing a single point of failure for accessibility
-* Centralized generation and maintenance allowing a single point of failure for compromise
+* Reliance on centralized generation and maintenance (single point of failure)
+* Reliance on centralized distribution (single point of failure)
 
 ---
 
 ### Scalability
-Thanks in no small part due to the valiant efforts of CanaryWatch (Calyx, EFF, Freedom of the Press Foundation, NYU Law, and the Berkman Center), adoption of warrant canaries — at least in the beginning — had proven to be explosive, gaining much traction on the internet as a viable means to combat unconstitutional and unethical intervention from governments through the use of NSLs, gag orders, and their international equivalents.
+Thanks in no small part due to the valiant efforts of CanaryWatch (Calyx, EFF, Freedom of the Press Foundation, NYU Law, and the Berkman Center), adoption of warrant canaries — at least in the beginning — was explosive, gaining much traction on the internet as a viable means to combat unconstitutional and unethical intervention from governments through the use of NSLs, gag orders, and their international equivalents.
 
 
 ![Search frequency for the term “Warrant canary” since 2007](https://github.com/canarywatch/standard/blob/master/interest-over-time.png?raw=true "Search frequency for the term “Warrant canary” since 2007")
 
  ¹ ​ _Search frequency for the term “Warrant canary” since 2007_
 
-While adoption has continued to increase over time, the inability to automate verification and maintenance of those canaries has proven too troublesome for the involved parties to continue their involvement, and without a standardized framework and language for the canaries themselves, not only has it made automation impossible, but misinterpretation is common. Upon discontinuation of the original CanaryWatch project, the Electronic Frontier Foundation was quoted as saying [*"the fact that canaries are non-standard makes it difficult to automatically monitor them for changes or takedowns"*](https://www.eff.org/deeplinks/2016/05/canary-watch-one-year-later).
+While adoption had continued to increase over time, the inability to automate verification and maintenance of those canaries has proven too troublesome for many parties to continue employing them, and without a standardized framework and language for the canaries themselves, not only has it made automation impossible, but misinterpretation is frequently common. Upon discontinuation of the original CanaryWatch project, the Electronic Frontier Foundation was quoted as saying [*"the fact that canaries are non-standard makes it difficult to automatically monitor them for changes or takedowns"*](https://www.eff.org/deeplinks/2016/05/canary-watch-one-year-later).
 
 ---
 
 ### Standardizing the language
 
 To resolve these issues, we propose a standardization of the very language of the canaries themselves. By standardizing the elements of these warrant canary statements
-through codification, one can construct a human and machine readable warrant canary that can be programmatically verified. To consider what language should be standardized, we need to first ask what purpose the canary is intended to serve, and under what conditions should it be considered to have failed.
+through codification, one can construct a human and machine readable warrant canary that can be programmatically verified. To consider what language should be standardized, we need to first define the purpose of the canary and under what conditions it is considered failed.
 
 In general, canaries are designed to fail when:
 
@@ -78,7 +78,7 @@ SEPPU | ........ | Seppuku pledge²
 
 ### Construction
 
-Construction of the canary is done as JSON array with multiple options for verification rated by security. Among the fields provided is the ​VERSION​ of the canary codes map used, the date of ​RELEASE​, the date it EXPIRES, and cryptographically verifiable proof of ​FRESHNESS​ as the latest block hash of the bitcoin blockchain.
+Construction of the canary is done as JSON array with multiple options for verification rated by security. Among the fields provided is the ​VERSION​ of the canary codes map used, the date of ​RELEASE​, the date it EXPIRES, and optionally a cryptographically verifiable proof of ​FRESHNESS​ as the latest block hash of the bitcoin blockchain.
 
 
 #### Low security
@@ -88,7 +88,7 @@ The canary can be authenticated to the original source by providing the ​DOMAI
 
 #### Medium security
 
-Authentication of the canary is done via ECDSA (​ Curve25519 ​) cryptographic signature of the JSON array by the public key provided inside as the variable ​PUBKEY​.
+Authentication of the canary is done via ECDSA (​ Curve25519 ​) cryptographic signature of the squashed JSON array by the public key provided inside as the variable ​PUBKEY​.
 
 
 #### High security
@@ -138,17 +138,17 @@ Usage example:
         "EXPIRY": "2030-09-30T19:17:40+09:00",
         "FRESHNESS": "00000000000000000008b4177c1302331aa546635d65306d35c97a8b9bb3461d",
         "CODES": [
-            "SEPPU",
-            "GAG",
-            "TRAP",
-            "DURESS",
-            "XCRED",
-            "XOPERS",
-            "WAR",
-            "SUBP",
-            "CEASE",
-            "RAID",
-            "SEIZE"
+            "SEPPU": 1,
+            "GAG": 0,
+            "TRAP": 0,
+            "DURESS": 0,
+            "XCRED": 0,
+            "XOPERS": 0,
+            "WAR": 0,
+            "SUBP": 0,
+            "CEASE": 0,
+            "RAID": 0,
+            "SEIZE": 0
         ]
     },
     "SIGNATURE": "Eajg00cYjeP1Tt//6moo2eMpfHnrd8HZnOqY1XcawoqgwBrF4pIQ984kxN1uLQQHaKfStoWJTM5MKhR5aujTBA=="
@@ -175,18 +175,25 @@ Canaries are cryptographically signed to ensure the integrity of the data and to
 
 *  **Single party signing** — To generate a canary where the sole authorship and authority to sign it is in the hands of a single entity, one may use a single party signing key. This trust model carries a significant risk of loss and inevitable canary failure, as well as the potential for a malicious entity to seize the key from the owner and sign canaries on their behalf. Signing keys using single party signing should only be done if your threat model deems it necessary.
 
-* **Split key signing** — Distributing the trust to multiple parties, especially geographically distant and in multiple jurisdictions, significantly reduces the likelihood of a canary’s key being seized or completely lost. By splitting the key into several parts, one may share those parts with trusted individuals. Then after convincing the parties that the conditions of the canary have not changed, parties involved may sign the canary as being valid. Split keys are generated using two data points: the number of total participants you want to share with, and the minimum number of parties required to come together to sign. The ratio of required parties to involved parties should reflect your unique situation. A ratio of ​ 2-of-3 suggests that all parties are moderately trustworthy, have high availability for signing, and it is unlikely that two of the parties will both lose their keys or become compromised. A ratio of ​ 3-of-5 suggests that there is high trust and confidence in the relationship with all parties involved, but equally high likelihood they will lose their key or become compromised.
+* **Split key signing** — Distributing the trust to multiple parties, especially geographically distant and in multiple jurisdictions, significantly reduces the likelihood of a canary’s key being seized or completely lost. By splitting the key into several parts, one may share those parts with trusted individuals. Then after convincing the parties that the conditions of the canary have not changed, parties involved may sign the canary as being valid.
+
+Split keys are generated using two data points: the number of total participants you want to share with, and the minimum number of parties required to come together to sign. The ratio of required parties to involved parties should reflect your unique situation. A ratio of ​ 2-of-3 suggests that all parties are moderately trustworthy, have high availability for signing, and it is unlikely that two of the parties will both lose their keys or become compromised. A ratio of ​ 3-of-5 suggests that there is high trust and confidence in the relationship with all parties involved, but equally high likelihood they will lose their key, be unavailable in time for signing, or become compromised.
 
 ---
 
-### Decentralized distribution / storing history
-
-To combat circumvention and to provide a comparable history of previously published canaries, the distribution of canaries can done through a decentralized file sharing system such as IPFS or TahoeLAFS. With multiple public entities storing their own mirrors of the distributed database of canaries with version changes, submission of canaries in a timely manner is not easily thwarted by censorship tactics, and automated validation can be performed on the published canary.
-
----
 
 ### Automated validation
 
 Client or server software connecting to the distributed database network can download and verify canaries independently, alerting when one has failed. Pending integration by either a plugin or browser’s developer, this functionality could also be automatically performed inside a browser plugin, similarly to how an invalid certificate returns a broken lock symbol for expired or invalid certs.
 
 ---
+
+### Decentralized distribution / storing history
+
+To combat censorship and circumvention and to provide a comparable history of previously published canaries, the distribution of canaries can done through a decentralized file sharing system such as IPFS, TahoeLAFS, Torrents, or similar mechanism. With multiple public entities storing their own mirrors of the distributed database of canaries with version changes, submission of canaries in a timely manner is not easily thwarted by censorship tactics, and automated validation can be performed on the published canary.
+
+The distribution of canaries is currently outside the scope of this standard, but is taken into consideration when designing it to be scalable. Future implementations of code may include distribution mechanisms as well.
+
+---
+
+This standard is currently being developing into a PoC CLI client located at https://github.com/canarytail/client.
