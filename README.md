@@ -138,17 +138,17 @@ Usage example:
         "EXPIRY": "2030-09-30T19:17:40+09:00",
         "FRESHNESS": "00000000000000000008b4177c1302331aa546635d65306d35c97a8b9bb3461d",
         "CODES": [
-            "SEPPU": "none",
-            "GAG": "none",
-            "TRAP": "none",
-            "DURESS": "none",
-            "XCRED": "none",
-            "XOPERS": "none",
-            "WAR": "none",
-            "SUBP": "none",
-            "CEASE": "none",
-            "RAID": "none",
-            "SEIZE": "none"
+            "SEPPU": "OK",
+            "GAG": "OK",
+            "TRAP": "OK",
+            "DURESS": "OK",
+            "XCRED": "OK",
+            "XOPERS": "OK",
+            "WAR": "OK",
+            "SUBP": "OK",
+            "CEASE": "OK",
+            "RAID": "OK",
+            "SEIZE": "OK"
         ]
     },
     "SIGNATURE": "Eajg00cYjeP1Tt//6moo2eMpfHnrd8HZnOqY1XcawoqgwBrF4pIQ984kxN1uLQQHaKfStoWJTM5MKhR5aujTBA=="
