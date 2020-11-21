@@ -48,7 +48,7 @@ In general, canaries are designed to fail when:
 * NSLs, gag orders, or other court orders have been given to hide, conceal, or otherwise withhold information from the public
 * Backdoors have been planted to spy on and trap users
 * Raids have been conducted on hardware and operating premises
-* Integrity of access keys and leadership of a company is sound and still trustworthy
+* Integrity of access keys and leadership of a company is no longer sound or trustworthy
 
 In the case of gag orders, some make it unlawful to reveal the exact number of occurrences of requests for data for example, but do allow for an organization to reveal a broad range (e.g. “anywhere from  0  to 1,000”). This combined with a general statement that there has never been a request, one may deduce whether or not a request has in fact been made, and to a certain degree, how many times.
 
@@ -78,7 +78,7 @@ SEPPU | ........ | Seppuku pledge²
 
 ### Construction
 
-Construction of the canary is done as JSON array with multiple options for verification rated by security. Among the fields provided is the ​VERSION​ of the canary codes map used, the date of ​RELEASE​, the date it EXPIRES, and optionally a cryptographically verifiable proof of ​FRESHNESS​ as the latest block hash of the bitcoin blockchain.
+Construction of the canary is done as JSON array with multiple options for verification rated by security. Among the fields provided is the ​VERSION​ of the canary codes map used, the date of ​RELEASE​, the date it EXPIRES, and optionally a cryptographically verifiable proof of ​FRESHNESS​ as the latest block hash of the bitcoin blockchain. *This is not to imply that any blockchain technology is required or involved in the canary process, it is merely used as a dating mechanism and can be replaced with other methods such as news story headlines that couldn't have been guessed ahead of time.*
 
 
 #### Low security
@@ -105,17 +105,17 @@ Valid Fields:
 
 `PUBKEY` - specifies the public key (if any) tied to the entity. This is used for signing the canary itself to prove authenticity.
 
-`NEWPUBKEY` - species the replacement public key (if any) tied to the entity. This is used when signing parties change or a key needs to be updated for whatever reason.
+`NEWPUBKEY` - specifies the expected replacement public key (if any) tied to the entity for any future signatures. This is used when signing parties change or a key needs to be updated for whatever reason.
 
-`PANICKEY` - specifies the public key (if any) that can trigger the canary simply by signing it. This is used when the party wishes to end the canary for whatever reason (e.g. business closing, compromised, lost keys to main signing key).
+`PANICKEY` - specifies the public key (if any) that can trigger the canary simply by a future canary being signed by it. This is used when the party wishes to end the canary for whatever reason (e.g. business closing, compromised, lost keys to main signing key).
 
-`NEWPANICKEY` - species the replacement panic public key (if any) tied to the entity. This is used when signing parties change or a key needs to be updated for whatever reason.
+`NEWPANICKEY` - specifies the replacement panic public key (if any) tied to the entity for any future signatures. This is used when signing parties change or a key needs to be updated for whatever reason.
 
 `VERSION` - specifies the protocol version (different protocols may behave differently or contain different codes)
 
 `RELEASE` - specifies when the canary was signed
 
-`EXPIRY` - specifies when the canary expires
+`EXPIRY` - specifies when the canary should expire
 
 `FRESHNESS` - specifies a recent block hash from the bitcoin blockchain. This is used to provide evidence that the canary was not signed before said block was mined.
 
@@ -138,17 +138,17 @@ Usage example:
         "EXPIRY": "2030-09-30T19:17:40+09:00",
         "FRESHNESS": "00000000000000000008b4177c1302331aa546635d65306d35c97a8b9bb3461d",
         "CODES": [
-            "SEPPU": 1,
-            "GAG": 0,
-            "TRAP": 0,
-            "DURESS": 0,
-            "XCRED": 0,
-            "XOPERS": 0,
-            "WAR": 0,
-            "SUBP": 0,
-            "CEASE": 0,
-            "RAID": 0,
-            "SEIZE": 0
+            "SEPPU": "none",
+            "GAG": "none",
+            "TRAP": "none",
+            "DURESS": "none",
+            "XCRED": "none",
+            "XOPERS": "none",
+            "WAR": "none",
+            "SUBP": "none",
+            "CEASE": "none",
+            "RAID": "none",
+            "SEIZE": "none"
         ]
     },
     "SIGNATURE": "Eajg00cYjeP1Tt//6moo2eMpfHnrd8HZnOqY1XcawoqgwBrF4pIQ984kxN1uLQQHaKfStoWJTM5MKhR5aujTBA=="
