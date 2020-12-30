@@ -70,9 +70,6 @@ RAID | ........ | Raids with high confidence nothing containing useful data was 
 SEIZE | ........ | Raids with low confidence nothing containing useful data was seized
 XCRED | ........ | Compromised credentials
 XOPERS | ........ | Compromised operations
-SEPPU | ........ | Seppuku pledge²
----
-*² ​A Seppuku pledge is a statement of intent to shut down and cease operations of a company or project, wipe all devices, and destroy all files in the event of an unsurpassable order to operate under the supervision, control, or influence of a malicious entity.*
 
 ---
 
@@ -101,15 +98,15 @@ The ECDSA (​ Curve25519 ​) ​PUBKEY​ can be a split-key created by n-of-p
 
 Valid Fields:
 
-`DOMAIN` - specifies the address (if any) tied to the entity. This is used for simplistic TLS/SSL certificate verification of authenticity as well.
+`DOMAIN` - specifies the address (if any) tied to the entity. This is used for simplistic TLS/SSL certificate verification of authenticity as well
 
-`PUBKEY` - specifies the public key (if any) tied to the entity. This is used for signing the canary itself to prove authenticity.
+`PUBKEY` - specifies the public key (if any) tied to the entity. This is used for signing the canary itself to prove authenticity
 
-`NEWPUBKEY` - specifies the expected replacement public key (if any) tied to the entity for any future signatures. This is used when signing parties change or a key needs to be updated for whatever reason.
+`NEWPUBKEY` - specifies the expected replacement public key (if any) tied to the entity for any future signatures. This is used when signing parties change or a key needs to be updated for whatever reason
 
-`PANICKEY` - specifies the public key (if any) that can trigger the canary simply by a future canary being signed by it. This is used when the party wishes to end the canary for whatever reason (e.g. business closing, compromised, lost keys to main signing key).
+`PANICKEY` - specifies the public key (if any) that can trigger the canary simply by a future canary being signed by it. This is used when the party wishes to end the canary for whatever reason (e.g. business closing, compromised, lost keys to main signing key)
 
-`NEWPANICKEY` - specifies the replacement panic public key (if any) tied to the entity for any future signatures. This is used when signing parties change or a key needs to be updated for whatever reason.
+`NEWPANICKEY` - specifies the replacement panic public key (if any) tied to the entity for any future signatures. This is used when signing parties change or a key needs to be updated for whatever reason
 
 `VERSION` - specifies the protocol version (different protocols may behave differently or contain different codes)
 
@@ -117,42 +114,43 @@ Valid Fields:
 
 `EXPIRY` - specifies when the canary should expire
 
-`FRESHNESS` - specifies a recent block hash from the bitcoin blockchain. This is used to provide evidence that the canary was not signed before said block was mined.
+`FRESHNESS` - specifies a recent block hash from the bitcoin blockchain. This is used to provide evidence that the canary was not signed before said block was mined
 
-`CODES` - specifies an array of the codes that apply to this canary. Missing codes indicate triggered canary.
-
-
+`CODES` - specifies an array of the codes that apply to this canary. Missing codes indicate triggered canary. Codes are always listed alphabetically
 
 
-Usage example:
+
+
+Usage example *(for demonstration purposes only)*:
 
     {
-    "CANARY": {
-        "DOMAIN": "cryptanalys.is",
-        "PUBKEY": "Y4PsjneDjxckrgibojs38VDWFBTyvlVtTQR3Z9RTRw0=",
-        "NEWPUBKEY": "",
-        "PANICKEY": "",
-        "NEWPANICKEY": "",
-        "VERSION": "0.1",
-        "RELEASE": "2020-09-30T19:17:40+09:00",
-        "EXPIRY": "2030-09-30T19:17:40+09:00",
-        "FRESHNESS": "00000000000000000008b4177c1302331aa546635d65306d35c97a8b9bb3461d",
-        "CODES": [
-            "SEPPU": "OK",
-            "GAG": "OK",
-            "TRAP": "OK",
-            "DURESS": "OK",
-            "XCRED": "OK",
-            "XOPERS": "OK",
-            "WAR": "OK",
-            "SUBP": "OK",
-            "CEASE": "OK",
-            "RAID": "OK",
-            "SEIZE": "OK"
-        ]
-    },
-    "SIGNATURE": "Eajg00cYjeP1Tt//6moo2eMpfHnrd8HZnOqY1XcawoqgwBrF4pIQ984kxN1uLQQHaKfStoWJTM5MKhR5aujTBA=="
-   }
+        "CANARY": {
+            "CLAIMS": {
+                "DOMAIN": "cryptanalys.is",
+                "PUBKEY": "Y4PsjneDjxckrgibojs38VDWFBTyvlVtTQR3Z9RTRw0=",
+                "NEWPUBKEY": "venYyx8=Rok4VP90RWsiD3QbVTR3sTZjjgltBjTrcwFD",
+                "PANICKEY": "",
+                "NEWPANICKEY": "",
+                "VERSION": "0.1",
+                "RELEASE": "2020-09-30T19:17:40+09:00",
+                "EXPIRY": "2030-09-30T19:17:40+09:00",
+                "FRESHNESS": "00000000000000000008b4177c1302331aa546635d65306d35c97a8b9bb3461d",
+                "CODES": "CEASE, DURESS, GAG, RAID, SEIZE, SEPPU, SUBP, TRAP, WAR, XCRED, XOPERS"
+            },
+            "SIGNATURES":{
+                "SIGNED_DOMAIN": "Eajg00cYjeP1Tt//6moo2eMpfHnrd8HZnOqY1XcawoqgwBrF4pIQ984kxN1uLQQHaKfStoWJTM5MKhR5aujTBA==",
+                "SIGNED_PUBKEY": "S=j6gRr8H0toY5EqT4kTMoKPILHdh95tqaueZ1M0KWOQFMH1mwnefQXN/oBcQjYa2uapcaArp=gj81x/oJwfnTB4",
+                "SIGNED_NEWPUBKEY": "mTqMKB=OuS4wQJHatpo5Nrexrooa0pMQF/k0A2BdjERcjI/e681qW1gnH4af8L9=XnTjZauKthQfYYcwHogM1T5P,
+                "SIGNED_PANICKEY": "I8MRN5YcTrnhMEaHKwkp5A0wnogqqjerM9B/T/uLpegjao14StQfP8B2t1=oYfJ6T1HZxmaQQOcd=aoH0KXWFj4u",
+                "SIGNED_NEWPANICKEY": "u5Q6FZrQNcMooaEq5Mrtp0tSX8T4=9Hnc2gKWM1KBh=nLao1jja0QTx4BJPH/m/AjOfdIkeoTp8qfaRY1wewYguH",
+                "SIGNED_VERSION": "HamapANgBeFR/oM2oXahS58H8P1W4qJnjfZkB=ErKK0ocLQTueqI56jujx0QcQ=41oMOMgadYTnwwpr9YHtft/1T",
+                "SIGNED_RELEASE": "wJa2xfcSTPFk1BYMd5Tpgo/HB=rK48QWjQXHr8OQImct1ea5R9gjTtufu0Y/oaqHh0KqoZ6jwMLn4p=1EMNeAnoa",
+                "SIGNED_EXPIRY": "=ngLZnT1eojPMF0MKaq8TaTQ=waO/1YrIRc4jNHBg0xja1or5J9fKBtqM46QQpwHfcueWYdEm25oAS/pohktXu8H",
+                "SIGNED_FRESHNESS": "YoT=h1Bnw5KMWRH9muLQSF8HaYc5kJZ/QpXcEBjpfg1/uoa4w=qnxTaNTtHoPQ2daKj8gjMIOMf0Art6e1oe0r4q",
+                "SIGNED_CODES": "1J4joZKaQYorhqcOQkSwK8T1qt8=mog25IXr1e6LHF0Ba0/nu/HguQMf59dxoYMAMjfPaTpHRatWpETNnc4Bewj="
+            }
+        }
+    }
 
 Using the canary above, one may programmatically determine that the owner of the PUBKEY​ ​Y4PsjneDjxckrgibojs38VDWFBTyvlVtTQR3Z9RTRw0=​ is confident that:
 
@@ -160,8 +158,7 @@ Using the canary above, one may programmatically determine that the owner of the
 * they have not been asked to spy on their customers or users or install backdoors
 * their premises were not raided with any noteworthy seizures
 * their operational integrity and credentials are intact
-* they will be able to cease operations if forced to violate the trust of their users
-* they are safer if they update their key to a new one
+* they decided to update their key to a new one for whatever reason, and will be signing all future canaries with that new key
 
 If a canary is signed by the pubkey listed under ​PANICKEY​, it means that whichever party was trusted with the split keys to sign with that key has done so with the intent of forcibly causing the canary to fail before it can expire naturally or through change of contents.
 
