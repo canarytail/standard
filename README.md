@@ -187,10 +187,14 @@ Client or server software connecting to the distributed database network can dow
 
 ### Decentralized distribution / storing history
 
-To combat censorship and circumvention and to provide a comparable history of previously published canaries, the distribution of canaries can done through a decentralized file sharing system such as IPFS, TahoeLAFS, Torrents, or similar mechanism. With multiple public entities storing their own mirrors of the distributed database of canaries with version changes, submission of canaries in a timely manner is not easily thwarted by censorship tactics, and automated validation can be performed on the published canary.
+A standalone canary can be a powerful tool for confirming or denying certain information, but is flawed in that changes to the canary itself will not be obvious. This is especially a problem for confirming a signing key has not been maliciously replaced.
+
+To combat this as well as censorship and circumvention, the distribution of versioned canaries can done through a decentralized file sharing or versioning system such as IPFS, TahoeLAFS, Torrents, or similar mechanisms. With multiple public entities storing their own mirrors of the distributed database of canaries with version changes, submission of canaries in a timely manner is not easily thwarted by censorship tactics, and automated validation including the detection of changes can easily be performed on the published canaries.
 
 The distribution of canaries is currently outside the scope of this standard, but is taken into consideration when designing it to be scalable. Future implementations of code may include distribution mechanisms as well.
 
 ---
 
-This standard is currently being developing into a PoC CLI client located at https://github.com/canarytail/client.
+This standard is implemented into two actively developed PoCs: https://github.com/canarytail/client and https://github.com/canarytail/webapp. Both of which are featured on canarytail.org's website..
+
+Work on a PoC for the decentralized distribution of canary "databases" via IPFS is planned for 2021.
